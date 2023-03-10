@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://trace.odfl.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:intf="http://trace.odfl.com" targetNamespace="http://trace.odfl.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://trace.odfl.com" elementFormDefault="qualified" targetNamespace="http://trace.odfl.com">
+      <xsd:element name="getTraceData">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="pro" nillable="true" type="xsd:string" />
+            <xsd:element name="type" nillable="true" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="TraceResult">
+        <xsd:sequence>
+          <xsd:element name="proNum" nillable="true" type="xsd:string" />
+          <xsd:element name="proDate" nillable="true" type="xsd:string" />
+          <xsd:element name="statusCode" nillable="true" type="xsd:string" />
+          <xsd:element name="status" nillable="true" type="xsd:string" />
+          <xsd:element name="appointment" nillable="true" type="xsd:string" />
+          <xsd:element name="pieces" nillable="true" type="xsd:string" />
+          <xsd:element name="weight" nillable="true" type="xsd:string" />
+          <xsd:element name="po" nillable="true" type="xsd:string" />
+          <xsd:element name="bol" nillable="true" type="xsd:string" />
+          <xsd:element name="trailer" nillable="true" type="xsd:string" />
+          <xsd:element name="signature" nillable="true" type="xsd:string" />
+          <xsd:element name="origTerminal" nillable="true" type="xsd:string" />
+          <xsd:element name="origAddress" nillable="true" type="xsd:string" />
+          <xsd:element name="origState" nillable="true" type="xsd:string" />
+          <xsd:element name="origName" nillable="true" type="xsd:string" />
+          <xsd:element name="origCity" nillable="true" type="xsd:string" />
+          <xsd:element name="origZip" nillable="true" type="xsd:string" />
+          <xsd:element name="origPhone" nillable="true" type="xsd:string" />
+          <xsd:element name="origFax" nillable="true" type="xsd:string" />
+          <xsd:element name="destTerminal" nillable="true" type="xsd:string" />
+          <xsd:element name="destAddress" nillable="true" type="xsd:string" />
+          <xsd:element name="destState" nillable="true" type="xsd:string" />
+          <xsd:element name="destName" nillable="true" type="xsd:string" />
+          <xsd:element name="destCity" nillable="true" type="xsd:string" />
+          <xsd:element name="destZip" nillable="true" type="xsd:string" />
+          <xsd:element name="destPhone" nillable="true" type="xsd:string" />
+          <xsd:element name="destFax" nillable="true" type="xsd:string" />
+          <xsd:element name="delivered" nillable="true" type="xsd:string" />
+          <xsd:element name="url" nillable="true" type="xsd:string" />
+          <xsd:element name="type" nillable="true" type="xsd:string" />
+          <xsd:element name="scac" nillable="true" type="xsd:string" />
+          <xsd:element name="errorMessage" nillable="true" type="xsd:string" />
+          <xsd:element name="guaranteed" nillable="true" type="xsd:string" />
+          <xsd:element name="call" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="getTraceDataResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="getTraceDataReturn" nillable="true" type="intf:TraceResult" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="getTraceDataResponse">
+    <wsdl:part name="parameters" element="intf:getTraceDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="getTraceDataRequest">
+    <wsdl:part name="parameters" element="intf:getTraceData" />
+  </wsdl:message>
+  <wsdl:portType name="Trace">
+    <wsdl:operation name="getTraceData">
+      <wsdl:input name="getTraceDataRequest" message="intf:getTraceDataRequest" />
+      <wsdl:output name="getTraceDataResponse" message="intf:getTraceDataResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TraceSoapBinding" type="intf:Trace">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getTraceData">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="getTraceDataRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="getTraceDataResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TraceService">
+    <wsdl:port name="Trace" binding="intf:TraceSoapBinding">
+      <wsdlsoap:address location="http://www.odfl.com/TraceWebServiceWeb/services/Trace" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

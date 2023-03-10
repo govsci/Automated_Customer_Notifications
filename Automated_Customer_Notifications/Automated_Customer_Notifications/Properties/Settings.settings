@@ -1,0 +1,18 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Automated_Customer_Notifications.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Automated_Customer_Notifications_API_DHL_gblDHLExpressTrack" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://wsb.dhl.com:443/gbl/glDHLExpressTrack</Value>
+    </Setting>
+    <Setting Name="Automated_Customer_Notifications_API_Fedex_TrackService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://ws.fedex.com:443/web-services/track</Value>
+    </Setting>
+    <Setting Name="Automated_Customer_Notifications_API_ODFL_TraceService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.odfl.com/TraceWebServiceWeb/services/Trace</Value>
+    </Setting>
+    <Setting Name="Automated_Customer_Notifications_API_UPS_TrackService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">https://onlinetools.ups.com/webservices/Track</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
